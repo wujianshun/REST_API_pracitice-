@@ -1,3 +1,4 @@
+import os 
 from flask import Flask,request
 from flask_restful import Resource, Api,reqparse
 #resources are Api can returned
@@ -18,7 +19,7 @@ from db import db
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL','sqlite:///data.db')
 
 app.config['SQLALCHEMY_TRCK_MODIFICATIONS'] = False
 #reason SQLalchemy_track has its own track which is better than track in Flask-sqlalchemy
