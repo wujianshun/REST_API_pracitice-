@@ -48,6 +48,8 @@ api.add_resource(UserRegister,'/register')
 #goal: prevent run sth from import that we don't expected 
 #python assign this file a name as '__main__'
 
+#note:uwsgi will not run this part, so need to create new file to let app to run 
+
 if __name__ =='__main__':
     db.init_app(app)
     app.run(port=5000,debug=True)
